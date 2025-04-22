@@ -1,13 +1,13 @@
 header {
-    background-color: cornflowerblue;
-    color: #E1F5FE;
+    background-color: var(--color-head-background);
+    color: var(--color-text);
 }
 
 h2 {
-    background-color: #2B7A78;
-    color: #E1F5FE;
+    background-color: var(--color-h-background);
+    color: var(--color-text);
 }
 
 body {
-    background-color: #B7D8E6
+    background-color: var(--color-background-page);
 }
