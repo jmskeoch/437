@@ -1,13 +1,43 @@
-header {
-    background-color: var(--color-head-background);
-    color: var(--color-text);
-}
-
 h2 {
     background-color: var(--color-h-background);
     color: var(--color-text);
+
+
+    font-family: Roboto, serif;
+    font-weight: 600; /* bold */
+    font-size: 48px;
+    font-style: italic;
+
+    text-align: center;
 }
+
+header {
+    background-color: var(--color-header-background);
+    color: var(--color-text);
+
+
+    font-family: Roboto, serif;
+    font-weight: 400;
+    font-size: 48px;
+    font-style: italic;
+
+    text-align: center;
+}
+
 
 body {
     background-color: var(--color-background-page);
+
+    font-family: 'Roboto Condensed', serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: normal;
+}
+
+svg.icon {
+    display: inline;
+    height: 2em;
+    width: 2em;
+    vertical-align: top;
+    fill: currentColor;
 }
