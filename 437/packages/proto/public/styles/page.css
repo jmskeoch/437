@@ -40,6 +40,7 @@ body {
     font-weight: 400;
     font-size: 20px;
     font-style: normal;
+    margin: 0;
 }
 
 p {
@@ -51,9 +52,9 @@ p {
 
 svg.icon {
     display: inline;
-    height: 2em;
-    width: 2em;
-    vertical-align: top;
+    height: 1.25em;
+    width: 1.25em;
+    vertical-align: middle;
     fill: currentColor;
 }
 
@@ -63,25 +64,42 @@ svg.icon {
     top: 0;
     color: var(--color-background-page);
 
+
     font-size: var(--text-size-body);  /* keep it the same as p */
     font-weight: 400;
 }
 
-.rig-list { /* for keeping it small under 'RIG LOG' */
+.header-subtext { /* for keeping it small under 'RIG LOG' */
     margin-top: 8px;
     font-size: var(--text-size-body);
 }
 
 .page {
     display: grid;
-    grid-template-columns:
-    [start] 1fr 1fr [end];
+    grid-template-columns: [start] 1fr 1fr [end];
 }
 .page > header {
     grid-column: start / end;
 }
 .page > main {
     grid-column-end: span 2;
+}
+
+.rig {
+    display: grid;
+    grid-template-columns: [start] 1fr 1fr 1fr [end];
+}
+
+.rig > header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    grid-column: start / end;
+}
+
+.rig h1 {
+    text-align: center;
 }
 
 .resources-container {
