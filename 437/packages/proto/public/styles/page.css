@@ -18,7 +18,7 @@ h1 {
 
 header {
     background-color: var(--color-header-background);
-    color: var(--color-text);
+    color: white;
 
 
     font-family: Roboto, serif;
@@ -41,6 +41,8 @@ body {
     font-size: 20px;
     font-style: normal;
     margin: 0;
+
+    color: var(--color-text);
 }
 
 p {
@@ -61,6 +63,17 @@ svg.icon {
 .top-right {
     position: absolute;
     right: 20px;
+    top: 0;
+    color: var(--color-background-page);
+
+
+    font-size: var(--text-size-body);  /* keep it the same as p */
+    font-weight: 400;
+}
+
+.top-left {
+    position: absolute;
+    left: 20px;
     top: 0;
     color: var(--color-background-page);
 

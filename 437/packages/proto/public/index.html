@@ -14,6 +14,18 @@
 </head>
 <header>
 		RIG LOG
+		<div class="top-left">
+			<label
+			  onchange="relayEvent(
+					  event,
+					  'dark-mode', /* replace with custom */
+					  {checked: event.target.checked})"
+			>
+				<input type="checkbox" autocomplete="off" id="darkModeCheckBox" />
+				Dark Mode
+			</label>
+		</div>
+
 		<div class="top-right">
 			<svg class="icon">
 				<use href="/icons/sprite.svg#icon-slackline" />
@@ -40,6 +52,8 @@
 		</dl>
 	</section>
 	<img src="/assets/highline_main.JPG" alt="highline front" style="width:60%; justify-self: end; align-self: start;">
+
+	<script src="/main.js"> </script>
 </body>
 </html>
 
