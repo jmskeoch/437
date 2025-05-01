@@ -1,5 +1,14 @@
 const page = document.body;
 
+document.body.addEventListener(
+    "dark-mode:toggle",
+    (event) => {
+        const page = event.currentTarget;
+        const checked = event.detail.checked;
+        page.classList.toggle("dark-mode", checked);
+    }
+);
+
 function toggleDarkMode(target, checked) {
     const customEvent = new CustomEvent(
         "dark-mode:toggle", {
@@ -9,12 +18,3 @@ function toggleDarkMode(target, checked) {
     );
     target.dispatchEvent(customEvent);
 }
-
-document.body.addEventListener(
-    "dark-mode:toggle",
-    (event) => {
-        const page = event.currentTarget;
-        const checked = event.detail.checked;
-        page.classList.toggle("dark-mode", checked);
-    }
-);
