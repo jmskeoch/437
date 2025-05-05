@@ -17,9 +17,8 @@
 		<div class="top-left">
 			<label
 			  onchange="toggleDarkMode(
-					  event,
-					  'dark-mode', /* replace with custom */
-					  {checked: event.target.checked})"
+					  event.target,
+					  event.target.checked)"
 			>
 				<input type="checkbox" autocomplete="off" id="darkModeCheckBox" />
 				Dark Mode
