@@ -1,10 +1,10 @@
 {
   "name": "proto",
   "version": "1.0.0",
-  "main": "/index.html",
+  "main": "index.html",
   "description": "",
   "scripts": {
-    "start": "http-server -p 3000",
+    "start": "http-server dist -p 3000",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx vite",
     "build": "npx tsc && npx vite build"

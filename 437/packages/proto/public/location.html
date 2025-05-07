@@ -16,6 +16,16 @@
 			<use href="/packages/proto/public/icons/sprite.svg#icon-map" />
 		</svg>
 		LOCATION
+		<div class="top-left">
+			<label
+					onchange="toggleDarkMode(
+					  event.target,
+					  event.target.checked)"
+			>
+				<input type="checkbox" autocomplete="off" id="darkModeCheckBox" />
+				Dark Mode
+			</label>
+		</div>
 	</header>
 	<dl>
 		<dt> Country </dt>
@@ -36,6 +46,7 @@
 		<dt> Coordinates </dt>
 		<dd> ------ </dd>
 	</dl>
+	<script src="/main.js"> </script>
 </body>
 
 </html>

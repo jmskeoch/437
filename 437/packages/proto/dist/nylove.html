@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/styles/page.css" />
+	<link rel="stylesheet" href="/styles/tokens.css" />
+	<!-- roboto condensed -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script type="importmap">
+	{
+      "imports": {
+        "@calpoly/mustang":
+          "https://unpkg.com/@calpoly/mustang"
+      }
+    }
+</script>
+  <script type="module" crossorigin src="/assets/nl-DhX-WL8T.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/sessions-BxecQzCV.js">
+</head>
+
+	<header> NyLOVE [72m]
+		<div class="top-left">
+			<label
+					onchange="toggleDarkMode(
+					  event.target,
+					  event.target.checked)"
+			>
+				<input type="checkbox" autocomplete="off" id="darkModeCheckBox" />
+				Dark Mode
+			</label>
+		</div>
+		<div class="top-right"> logo here</div>
+		<div class="header-subtext"> Adan Shaw </div>
+	</header>
+
+<!-- CUSTOM ELEMENT SETUP -->
+
+
+<body class="rig">
+	<div>
+		<h1>
+			<svg class="icon">
+				<use href="/icons/sprite.svg#icon-log" />
+			</svg>
+			SESSIONS
+		</h1>
+		<rig-sessions>
+			<span slot="date"> test </span>
+			<span slot="weather"> test </span>
+			<span slot="damage"> test </span>
+		</rig-sessions>
+	</div>
+	<div>
+		<h1>
+			<svg class="icon">
+				<use href="/icons/sprite.svg#icon-hardware" />
+			</svg>
+			ANCHOR MATERIALS
+		</h1>
+	<ul>
+		<li> 20m Static Rope </li>
+		<li> 4 Spansets </li>
+		<li> 5 Shackles </li>
+		<li> 1 Weblocks </li>
+		<li> 2 Soft Shackle </li>
+		<li> 1 Mightylock </li>
+		<li> 1 Strong Release </li>
+		<li> 2 Leashes </li>
+	</ul>
+	</div>
+	<div>
+		<img src="/assets/nylove_img.jpg" alt="nylove" style="display: grid; width: 100%;  justify-self: end; align-self: start;">
+	</div>
+	<script src="/main.js"> </script>
+</body>
+</html>

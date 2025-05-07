@@ -1,3 +1,4 @@
+/* DARK MODE */
 const page = document.body;
 
 document.body.addEventListener(

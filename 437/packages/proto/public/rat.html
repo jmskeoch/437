@@ -13,6 +13,16 @@
 <body>
     <header>
         ROPE ACCESS TECH
+        <div class="top-left">
+            <label
+                    onchange="toggleDarkMode(
+					  event.target,
+					  event.target.checked)"
+            >
+                <input type="checkbox" autocomplete="off" id="darkModeCheckBox" />
+                Dark Mode
+            </label>
+        </div>
     </header>
     <img />
     <dl>
@@ -28,5 +38,6 @@
         <dt> Crew </dt>
         <dd> SLO Slack </dd>
     </dl>
+    <script src="/main.js"> </script>
     </body>
 </html>
