@@ -9,7 +9,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                pt: resolve(__dirname, 'pinktube.html'),
+                pt: resolve(__dirname, 'git pinktube.html'),
                 nl: resolve(__dirname, 'nylove.html'),
             },
         },
