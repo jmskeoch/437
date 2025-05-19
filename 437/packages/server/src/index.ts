@@ -2,8 +2,12 @@ import express, { Request, Response } from "express";
 import {connect} from "./services/mongo";
 connect("riglog");
 import Session from "./services/session-svc";
+import { sessions } from "./routes/sessions";
 
 const app = express();
+app.use(express.static("server"));
+app.use(express.json());
+app.use("/api/sessions", sessions);
 const port = process.env.PORT || 3000;
 const staticDir = process.env.STATIC || "public";
 
