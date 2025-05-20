@@ -3,11 +3,13 @@ import {connect} from "./services/mongo";
 connect("riglog");
 import Session from "./services/session-svc";
 import { sessions } from "./routes/sessions";
+import auth, {authenticateUser} from "./routes/auth";
 
 const app = express();
 app.use(express.static("server"));
 app.use(express.json());
-app.use("/api/sessions", sessions);
+app.use("/api/sessions", authenticateUser, sessions);
+app.use("/auth", auth);
 const port = process.env.PORT || 3000;
 const staticDir = process.env.STATIC || "public";
 
