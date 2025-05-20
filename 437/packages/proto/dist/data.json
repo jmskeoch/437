@@ -1,0 +1,20 @@
+{
+  "april10": {
+    "date": "4/10/2025",
+    "weather": "sunny",
+    "damage": "N",
+    "link": "/rat.html"
+  },
+  "april25": {
+    "date": "4/25/2025",
+    "weather": "rainy",
+    "damage": "Y",
+    "link": "/rat.html"
+  },
+  "may5": {
+    "date": "5/4/2025",
+    "weather": "sunny",
+    "damage": "N",
+    "link": "/rat.html"
+  }
+}
