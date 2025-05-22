@@ -12,6 +12,26 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
+<!-- CUSTOM ELEMENT SETUP -->
+<script type="importmap">
+	{
+      "imports": {
+        "@calpoly/mustang":
+          "https://unpkg.com/@calpoly/mustang"
+      }
+    }
+</script>
+<script type="module">
+	import { define, Auth } from "@calpoly/mustang";
+	import {HeaderElement} from "./src/header";
+
+	define({
+		"rig-header": HeaderElement,
+		"mu-auth": Auth.provider
+	});
+</script>
+
 <header>
 		RIG LOG
 		<div class="top-left">
@@ -26,9 +46,12 @@
 		</div>
 
 		<div class="top-right">
-			<svg class="icon">
-				<use href="/icons/sprite.svg#icon-slackline" />
-			</svg>
+			<rig-header>
+				Hello,
+				<svg class="icon">
+					<use href="/icons/sprite.svg#icon-slackline" />
+				</svg>
+			</rig-header>
 		</div>
 		<div class="header-subtext"> <a href="pinktube.html">
 			Pink Tube </a> |
@@ -36,7 +59,10 @@
 				NyLove </a> </div>
 </header>
 
+
+
 <body class="page">
+<mu-auth provides="session:auth">
 	<section class="resources-container">
 		<h1> RESOURCES </h1>
 		<dl class="resources">
@@ -53,6 +79,7 @@
 	<img src="/assets/highline_main.JPG" alt="highline front" style="width:60%; justify-self: end; align-self: start;">
 
 	<script src="/main.js"> </script>
+</mu-auth>
 </body>
 </html>
 
