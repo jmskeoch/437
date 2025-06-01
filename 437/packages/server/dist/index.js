@@ -26,6 +26,8 @@ var import_mongo = require("./services/mongo");
 var import_session_svc = __toESM(require("./services/session-svc"));
 var import_sessions = require("./routes/sessions");
 var import_auth = __toESM(require("./routes/auth"));
+var import_promises = __toESM(require("node:fs/promises"));
+var import_path = __toESM(require("path"));
 (0, import_mongo.connect)("riglog");
 const app = (0, import_express.default)();
 app.use(import_express.default.static("server"));
@@ -44,6 +46,12 @@ app.get("/session/:date", (req, res) => {
     if (data) res.set("Content-Type", "application/json").send(JSON.stringify(data));
     else res.status(404).send();
   });
+});
+app.use("/app", (req, res) => {
+  const indexHtml = import_path.default.resolve(staticDir, "index.html");
+  import_promises.default.readFile(indexHtml, { encoding: "utf8" }).then(
+    (html) => res.send(html)
+  );
 });
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

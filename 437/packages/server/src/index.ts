@@ -4,6 +4,8 @@ connect("riglog");
 import Session from "./services/session-svc";
 import { sessions } from "./routes/sessions";
 import auth, {authenticateUser} from "./routes/auth";
+import fs from "node:fs/promises";
+import path from "path";
 
 const app = express();
 app.use(express.static("server"));
@@ -31,6 +33,12 @@ app.get("/session/:date", (req: Request, res: Response) => {
   });	
 });
 
+app.use("/app", (req: Request, res: Response) => {
+    const indexHtml = path.resolve(staticDir, "index.html");
+    fs.readFile(indexHtml, { encoding: "utf8" }).then((html) =>
+        res.send(html)
+    );
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
