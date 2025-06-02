@@ -1,0 +1,24 @@
+:root {
+    --color-accent: #264653;
+    --color-link: var(--color-accent);
+    --color-text: black;
+    --color-h-background: cornflowerblue;
+    --color-background-page: #B7D8E6;
+
+    --color-header-background: #2B7A78;
+
+    --size-spacing-large: 4px;
+    --text-size-body: 16px;
+}
+
+body.dark-mode {
+    --color-accent: #9C27B0;
+    --color-link: var(--color-accent);
+    --color-text: #EDE7F6;
+    --color-h-background: #2A1A3B;
+    --color-background-page: #121016;
+    --color-header-background: #1F1230;
+
+    --size-spacing-large: 4px;
+    --text-size-body: 16px;
+}

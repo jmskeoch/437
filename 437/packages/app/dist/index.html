@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:style="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/styles/reset.css" /> <!-- RESET -->
+	<link rel="stylesheet" href="/styles/tokens.css" />
+	<link rel="stylesheet" href="/styles/page.css" />
+
+	<!-- roboto condensed -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script type="importmap">
+	{
+      "imports": {
+        "@calpoly/mustang":
+          "https://unpkg.com/@calpoly/mustang"
+      }
+    }
+</script>
+  <script type="module" crossorigin src="/assets/index-C-AqrQOu.js"></script>
+</head>
+
+<!-- CUSTOM ELEMENT SETUP -->
+
+
+<header>
+		RIG LOG
+		<div class="top-left">
+			<label
+			  onchange="toggleDarkMode(
+					  event.target,
+					  event.target.checked)"
+			>
+				<input type="checkbox" autocomplete="off" id="darkModeCheckBox" />
+				Dark Mode
+			</label>
+		</div>
+
+		<div class="header-subtext"> <a href="pinktube.html">
+			Pink Tube </a> |
+			<a href="nylove.html">
+				NyLove </a> </div>
+
+		<div class="top-right">
+			<rig-header></rig-header>
+		</div>
+</header>
+
+
+	<body class="page">
+	<mu-history provides="riglog:history">
+		<mu-auth provides="session:auth" redirect="/login">
+			<section class="resources-container">
+				<mu-switch></mu-switch>
+			</section>
+		</mu-auth>
+	</mu-history>
+
+	<script src="/main.js"> </script>
+	</body>
+</html>
+

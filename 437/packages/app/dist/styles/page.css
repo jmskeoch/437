@@ -1,0 +1,143 @@
+h2 {
+    background-color: var(--color-h-background);
+    color: var(--color-text);
+
+
+    font-family: Roboto, serif;
+    font-weight: 400; /* bold */
+    font-size: 48px;
+    font-style: italic;
+
+    text-align: center;
+}
+
+h1 {
+    padding: 10px;
+    text-align: left;
+}
+
+header {
+    background-color: var(--color-header-background);
+    color: white;
+
+
+    font-family: Roboto, serif;
+    font-weight: 600;
+    font-size: 48px;
+    font-style: italic;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+}
+
+body {
+    background-color: var(--color-background-page);
+
+    font-family: 'Roboto Condensed', serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: normal;
+    margin: 0;
+
+    color: var(--color-text);
+}
+
+p {
+    font-family: 'Roboto Condensed', serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+}
+
+svg.icon {
+    display: inline;
+    height: 1.25em;
+    width: 1.25em;
+    vertical-align: middle;
+    fill: currentColor;
+}
+
+.top-right {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    color: var(--color-background-page);
+
+
+    font-size: var(--text-size-body);  /* keep it the same as p */
+    font-weight: 400;
+}
+
+.top-left {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    color: var(--color-background-page);
+
+
+    font-size: var(--text-size-body);  /* keep it the same as p */
+    font-weight: 400;
+}
+
+.header-subtext { /* for keeping it small under 'RIG LOG' */
+    margin-top: 8px;
+    font-size: var(--text-size-body);
+}
+
+.page {
+    display: grid;
+    grid-template-columns: [start] 1fr 1fr [end];
+}
+.page > header {
+    grid-column: start / end;
+}
+.page > main {
+    grid-column-end: span 2;
+}
+
+.rig {
+    display: grid;
+    grid-template-columns: [start] 1fr 1fr 1fr [end];
+}
+
+.rig > header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    grid-column: start / end;
+}
+
+.rig h1 {
+    text-align: center;
+}
+
+.resources-container {
+    align-content: start;
+    padding: 1rem;
+    background-color: var(--color-background-page);
+    margin: auto;
+}
+
+.resources-container h1 {
+    margin-top: 0;
+}
+
+.resources {
+    display: grid;
+    grid-template-columns:
+    [start] 1fr 1fr 1fr
+            1fr [end];
+    gap: var(--text-size-body);
+}
+
+.resources > dt {
+    text-align: center;
+}
+
+.resources > dd {
+    grid-column: 2 / end;
+}

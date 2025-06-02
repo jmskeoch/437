@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/styles/page.css" />
+        <link rel="stylesheet" href="/styles/tokens.css" />
+
+        <!-- roboto condensed -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <header>
+        <svg class="icon">
+            <use href="/packages/proto/public/icons/sprite.svg#icon-hardware" />
+        </svg>
+        ANCHORS
+        <div class="top-left">
+            <label
+                    onchange="toggleDarkMode(
+					  event.target,
+					  event.target.checked)"
+            >
+                <input type="checkbox" autocomplete="off" id="darkModeCheckBox" />
+                Dark Mode
+            </label>
+        </div>
+    </header>
+    <body>
+    <img />
+    <p> Static Side: </p>
+    <dl>
+        <dt> Type </dt>
+        <dd> Bolts </dd>
+
+        <dt> Quantity </dt>
+        <dd> 3 </dd>
+
+        <dt> Rope Access Needs</dt>
+        <dd> Bunny Figure-8 </dd>
+    </dl>
+    <script src="/main.js"> </script>
+    </body>
+</html>

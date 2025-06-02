@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" xmlns:style="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/styles/reset.css" /> <!-- RESET -->
+	<link rel="stylesheet" href="/styles/tokens.css" />
+	<link rel="stylesheet" href="/styles/page.css" />
+
+	<!-- roboto condensed -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<!-- CUSTOM ELEMENT SETUP -->
+<script type="importmap">
+	{
+      "imports": {
+        "@calpoly/mustang":
+          "https://unpkg.com/@calpoly/mustang"
+      }
+    }
+</script>
+<script type="module">
+	import {
+		define,
+		Auth,
+		History,
+		Switch
+	} from "@calpoly/mustang";
+	import {HeaderElement} from "./src/header";
+	import {HomeViewElement} from "./src/views/home-view";
+	import {AnchorsViewElement} from "./src/views/anchors-view";
+	import {RatViewElement} from "./src/views/rat-view";
+	import {LocationViewElement} from "./src/views/location-view";
+	import { html, LitElement } from "lit";
+
+	const routes = [
+		{
+			path: "/",
+			redirect: "/app"
+		},
+		{
+			path:"/app",
+			view: () => html`<home-view></home-view>`
+		},
+		{    path: "/anchors",
+			view: () => html`<anchors-view></anchors-view>`
+		},
+		{
+			path: "/rat",
+			view: () => html`<rat-view></rat-view>`
+		},
+		{
+			path: "/location",
+			view: () => html`<location-view></location-view>`
+		}
+	];
+
+	define({
+		"rig-header": HeaderElement,
+		"home-view": HomeViewElement,
+		"anchors-view": AnchorsViewElement,
+		"rat-view": RatViewElement,
+		"location-view": LocationViewElement,
+		"mu-auth": Auth.Provider,
+		"mu-history": History.Provider,
+		"mu-switch": class AppSwitch extends Switch.Element {
+			constructor() {
+				super(routes, "riglog:history", "session:auth");
+			}
+		}
+	});
+</script>
+
+<header>
+		RIG LOG
+		<div class="top-left">
+			<label
+			  onchange="toggleDarkMode(
+					  event.target,
+					  event.target.checked)"
+			>
+				<input type="checkbox" autocomplete="off" id="darkModeCheckBox" />
+				Dark Mode
+			</label>
+		</div>
+
+		<div class="header-subtext"> <a href="pinktube.html">
+			Pink Tube </a> |
+			<a href="nylove.html">
+				NyLove </a> </div>
+
+		<div class="top-right">
+			<rig-header></rig-header>
+		</div>
+</header>
+
+
+	<body class="page">
+	<mu-history provides="riglog:history">
+		<mu-auth provides="session:auth" redirect="/login">
+			<section class="resources-container">
+				<mu-switch></mu-switch>
+			</section>
+		</mu-auth>
+	</mu-history>
+
+	<script src="/main.js"> </script>
+	</body>
+</html>
+
