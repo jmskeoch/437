@@ -22,57 +22,7 @@
       }
     }
 </script>
-<script type="module">
-	import {
-		define,
-		Auth,
-		History,
-		Switch
-	} from "@calpoly/mustang";
-	import {HeaderElement} from "./src/header";
-	import {HomeViewElement} from "./src/views/home-view";
-	import {AnchorsViewElement} from "./src/views/anchors-view";
-	import {RatViewElement} from "./src/views/rat-view";
-	import {LocationViewElement} from "./src/views/location-view";
-	import { html, LitElement } from "lit";
-
-	const routes = [
-		{
-			path: "/",
-			redirect: "/app"
-		},
-		{
-			path:"/app",
-			view: () => html`<home-view></home-view>`
-		},
-		{    path: "/anchors",
-			view: () => html`<anchors-view></anchors-view>`
-		},
-		{
-			path: "/rat",
-			view: () => html`<rat-view></rat-view>`
-		},
-		{
-			path: "/location",
-			view: () => html`<location-view></location-view>`
-		}
-	];
-
-	define({
-		"rig-header": HeaderElement,
-		"home-view": HomeViewElement,
-		"anchors-view": AnchorsViewElement,
-		"rat-view": RatViewElement,
-		"location-view": LocationViewElement,
-		"mu-auth": Auth.Provider,
-		"mu-history": History.Provider,
-		"mu-switch": class AppSwitch extends Switch.Element {
-			constructor() {
-				super(routes, "riglog:history", "session:auth");
-			}
-		}
-	});
-</script>
+<script src="./src/main.ts" type="module"></script>
 
 <header>
 		RIG LOG
@@ -101,9 +51,11 @@
 	<body class="page">
 	<mu-history provides="riglog:history">
 		<mu-auth provides="session:auth" redirect="/login">
-			<section class="resources-container">
-				<mu-switch></mu-switch>
-			</section>
+			<mu-store provides="riglog:model">
+				<section class="resources-container">
+					<mu-switch></mu-switch>
+				</section>
+			</mu-store>
 		</mu-auth>
 	</mu-history>
 

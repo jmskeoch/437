@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
-import {connect} from "./services/mongo";
+import {connect} from "../services/mongo";
 connect("riglog");
-import Session from "./services/session-svc";
-import { sessions } from "./routes/sessions";
-import auth, {authenticateUser} from "./routes/auth";
+import Session from "../services/session-svc";
+import { sessions } from "../routes/sessions";
+import auth, {authenticateUser} from "../routes/auth";
 import fs from "node:fs/promises";
 import path from "path";
 
