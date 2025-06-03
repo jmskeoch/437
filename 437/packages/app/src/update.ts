@@ -17,7 +17,21 @@ export default function update(
                     )
                 );
             break;
-        // put the rest of your cases here
+        case "profile/save":
+            saveProfile({userid: message[1].userid, profile: message[1].profile}, user)
+                .then((profile) =>
+                    apply((model) => ({ ...model, profile }))
+                )
+                .then(() => {
+                    const { onSuccess } = message[1];
+                    if (onSuccess) onSuccess();
+                })
+                .catch((error: Error) => {
+                    const { onFailure } = message[1];
+                    if (onFailure) onFailure(error);
+                });
+            break;
+            // MORE CASES HERE
         default:
             let unhandled;
             throw new Error(`Unhandled Auth message "${unhandled}"`);
@@ -43,5 +57,33 @@ function loadProfile(
                 console.log("Profile:", json);
                 return json as Session;
             }
+        });
+}
+
+function saveProfile(
+    msg: {
+        userid: string;
+        profile: Session;
+    },
+    user: Auth.User
+) {
+    return fetch(`/api/travelers/${msg.userid}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            ...Auth.headers(user)
+        },
+        body: JSON.stringify(msg.profile)
+    })
+        .then((response: Response) => {
+            if (response.status === 200) return response.json();
+            else
+                throw new Error(
+                    `Failed to save profile for ${msg.userid}`
+                );
+        })
+        .then((json: unknown) => {
+            if (json) return json as Session;
+            return undefined;
         });
 }

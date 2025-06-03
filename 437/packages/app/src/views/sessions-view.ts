@@ -5,7 +5,7 @@ import { Session } from "../../../server/src/models/session"
 import { Msg } from "../messages";
 import { Model } from "../model";
 
-export class TravelerViewElement extends View<Model, Msg> {
+export class SessionsViewElement extends View<Model, Msg> {
     @property({attribute: "user-id"})
     userid?: string;
 
