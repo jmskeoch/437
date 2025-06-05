@@ -59,6 +59,27 @@ router.post("/login", (req, res) => {
     import_credential_svc.default.verify(username, password).then((goodUser) => generateAccessToken(goodUser)).then((token) => res.status(200).send({ token })).catch((error) => res.status(401).send("Unauthorized"));
   }
 });
+router.get("/session", (req, res) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader?.split(" ")[1];
+  if (!token) {
+    res.status(401).json({ user: { authenticated: false } });
+  } else {
+    import_jsonwebtoken.default.verify(token, TOKEN_SECRET, (err, payload) => {
+      if (err || !payload || typeof payload !== "object") {
+        res.status(403).json({ user: { authenticated: false } });
+      } else {
+        const { username } = payload;
+        res.json({
+          user: {
+            username,
+            authenticated: true
+          }
+        });
+      }
+    });
+  }
+});
 function generateAccessToken(username) {
   return new Promise((resolve, reject) => {
     import_jsonwebtoken.default.sign(

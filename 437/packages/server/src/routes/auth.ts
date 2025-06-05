@@ -48,6 +48,29 @@ router.post("/login", (req: Request, res: Response) => {
     }
 });
 
+router.get("/session", (req: Request, res: Response) => {
+    const authHeader = req.headers["authorization"];
+    const token = authHeader?.split(" ")[1];
+
+    if (!token) {
+        res.status(401).json({ user: { authenticated: false } });
+    } else {
+        jwt.verify(token, TOKEN_SECRET, (err, payload) => {
+            if (err || !payload || typeof payload !== "object") {
+                res.status(403).json({ user: { authenticated: false } });
+            } else {
+                const { username } = payload as { username: string };
+                res.json({
+                    user: {
+                        username,
+                        authenticated: true
+                    }
+                });
+            }
+        });
+    }
+});
+
 function generateAccessToken(
     username: string
 ): Promise<String> {

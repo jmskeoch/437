@@ -28,22 +28,23 @@ export class LoginFormElement extends LitElement {
 
     override render() {
         return html`
-      <form
-        @change=${(e: InputEvent) => this.handleChange(e)}
-        @submit=${(e: SubmitEvent) => this.handleSubmit(e)}
-      >
-        <slot></slot>
-        <slot name="button">
-          <button
-            ?disabled=${!this.canSubmit}
-            type="submit">
-            Login
-          </button>
-        </slot>
-        <p class="error">${this.error}</p>
-      </form>
-    `;
+            <form
+                    @change=${(e: InputEvent) => this.handleChange(e)}
+                    @submit=${(e: SubmitEvent) => this.handleSubmit(e)}
+            >
+                <slot></slot>
+                <slot name="button">
+                    <button
+                            ?disabled=${!this.canSubmit}
+                            type="submit">
+                        Login
+                    </button>
+                </slot>
+                <p class="error">${this.error}</p>
+            </form>
+        `;
     }
+
 
     handleChange(event: InputEvent) {
         const target = event.target as HTMLInputElement;

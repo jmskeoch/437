@@ -19,10 +19,12 @@
       }
     }
 </script>
-  <script type="module" crossorigin src="/assets/index-CD0JEyWz.js"></script>
+  <script type="module" crossorigin src="/assets/main-CQF49aod.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/state-CgjjhgB9.js">
 </head>
 
 <!-- CUSTOM ELEMENT SETUP -->
+
 
 
 <header>
@@ -42,16 +44,18 @@
 			Pink Tube </a> |
 			<a href="nylove.html">
 				NyLove </a> </div>
-
-		<div class="top-right">
-			<rig-header></rig-header>
-		</div>
 </header>
 
 
 	<body class="page">
-	<mu-history provides="riglog:history">
-		<mu-auth provides="session:auth" redirect="/login">
+
+
+		<mu-auth provides="session:auth">
+			<div class="top-right">
+			<rig-header></rig-header>
+			</div>
+
+			<mu-history provides="riglog:history">
 			<mu-store provides="riglog:model">
 				<section class="resources-container">
 					<mu-switch></mu-switch>

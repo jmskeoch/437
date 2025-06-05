@@ -21,6 +21,10 @@ const routes = [
         redirect: "/app"
     },
     {
+        path: "/login",
+        redirect: "login.html"
+    },
+    {
         path:"/app",
         view: () => html`<home-view></home-view>`
     },

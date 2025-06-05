@@ -21,10 +21,10 @@ export class HeaderElement extends LitElement {
 
     renderSignInButton() {
         return html`
-    <a href="/login.html">
-      Sign In…
-    </a>
-  `;
+            <a href="../login.html">
+                Sign In…
+            </a>
+        `;
     }
 
     override render() {

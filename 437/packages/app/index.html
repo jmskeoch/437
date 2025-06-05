@@ -22,7 +22,18 @@
       }
     }
 </script>
-<script src="./src/main.ts" type="module"></script>
+<script src="./src/main.ts" type="module">
+</script>
+
+<script type="module">
+	import { define, Auth } from "@calpoly/mustang";
+	import { HeaderElement } from "/src/header";
+
+	define({
+		"blz-header": HeaderElement,
+		"mu-auth": Auth.Provider
+	});
+</script>
 
 <header>
 		RIG LOG
@@ -41,16 +52,18 @@
 			Pink Tube </a> |
 			<a href="nylove.html">
 				NyLove </a> </div>
-
-		<div class="top-right">
-			<rig-header></rig-header>
-		</div>
 </header>
 
 
 	<body class="page">
-	<mu-history provides="riglog:history">
-		<mu-auth provides="session:auth" redirect="/login">
+
+
+		<mu-auth provides="session:auth">
+			<div class="top-right">
+			<rig-header></rig-header>
+			</div>
+
+			<mu-history provides="riglog:history">
 			<mu-store provides="riglog:model">
 				<section class="resources-container">
 					<mu-switch></mu-switch>

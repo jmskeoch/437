@@ -2,15 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <script type="module">
-    import { define, Auth } from "@calpoly/mustang";
-    import { LoginFormElement } from "/packages/proto/src/auth/login-form";
-
-    define({
-      "mu-auth": Auth.Provider,
-      "login-form": LoginFormElement
-    });
-  </script>
+  <script type="module" crossorigin src="/assets/login-aUvJgw9M.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/state-CgjjhgB9.js">
 </head>
 <body class="page">
 <mu-auth>
@@ -25,7 +18,6 @@
         <span>Password:</span>
         <input type="password" name="password" />
       </label>
-      <button slot="button" type="submit">Login</button>
     </login-form>
   </main>
   <p
