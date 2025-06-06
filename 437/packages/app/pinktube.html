@@ -21,7 +21,11 @@
 				Dark Mode
 			</label>
 		</div>
-		<div class="top-right">logo here</div>
+		<div class="top-right">
+			<mu-auth>
+				<rig-header></rig-header>
+			</mu-auth>
+		</div>
 		<div class="header-subtext"> Jason Skeoch </div>
 	</header>
 
@@ -35,14 +39,19 @@
     }
 </script>
 <script type="module">
-	import { define } from "@calpoly/mustang";
-	 import { SessionsElement } from "./src/sessions.ts";
+	import { define, Auth } from "@calpoly/mustang";
+	import { SessionsElement } from "./src/sessions.ts";
+	import { SessionsWrapper } from "./src/sessionsWrapper.ts";
+	import { HeaderElement } from "/src/header";
 
 	define({
-		"rig-sessions": SessionsElement
+		"rig-sessions": SessionsWrapper,
+		"rig-header": HeaderElement,
+		"mu-auth": Auth.Provider
 	});
 
 </script>
+
 
 <body class="rig">
 	<div>
@@ -53,11 +62,7 @@
 			SESSIONS
 		</h1>
 		<!-- SESSIONS CUSTOM ELEMENT -->
-		<rig-sessions>
-			<span slot="date"></span>
-			<span slot="weather"></span>
-			<span slot="damage"></span>
-		</rig-sessions>
+		<rig-sessions class="rendered" src="/data.json"></rig-sessions>
 	</div>
 	<div>
 		<h1>
@@ -78,7 +83,7 @@
 	</ul>
 	</div>
 	<div>
-		<img src="/assets/pink_tube_img.jpg" alt="pink tube" style="display: grid; width: 80%;  justify-self: end; align-self: start;">
+		<img src="/assets/pink_tube_img.jpg" alt="pink tube" style="display: grid; width: 80%;  justify-self: end; float: right; align-self: start;">
 	</div>
 	<script src="/main.js"> </script>
 </body>

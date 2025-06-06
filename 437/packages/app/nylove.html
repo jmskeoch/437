@@ -21,7 +21,11 @@
 				Dark Mode
 			</label>
 		</div>
-		<div class="top-right"> logo here</div>
+		<div class="top-right">
+			<mu-auth>
+				<rig-header></rig-header>
+			</mu-auth>
+		</div>
 		<div class="header-subtext"> Adan Shaw </div>
 	</header>
 
@@ -35,11 +39,14 @@
     }
 </script>
 <script type="module">
-	import { define } from "@calpoly/mustang";
-	import { SessionsElement } from "./src/sessions.ts";
+	import { define, Auth } from "@calpoly/mustang";
+	import { SessionsWrapper } from "./src/sessionsWrapper.ts";
+	import { HeaderElement } from "/src/header";
 
 	define({
-		"rig-sessions": SessionsElement
+		"rig-sessions": SessionsWrapper,
+		"rig-header": HeaderElement,
+		"mu-auth": Auth.Provider
 	});
 </script>
 
@@ -51,11 +58,7 @@
 			</svg>
 			SESSIONS
 		</h1>
-		<rig-sessions>
-			<span slot="date"> test </span>
-			<span slot="weather"> test </span>
-			<span slot="damage"> test </span>
-		</rig-sessions>
+		<rig-sessions class="rendered" src="/data.json"></rig-sessions>
 	</div>
 	<div>
 		<h1>

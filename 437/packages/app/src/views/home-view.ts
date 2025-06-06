@@ -3,7 +3,9 @@ import { css, html, LitElement } from "lit";
 export class HomeViewElement extends LitElement {
     render() {
         return html`
-            <section class="resources-container">
+            <section class="rig">
+                <div class="resources-container">
+                    
                 <h1> RESOURCES </h1>
                 <dl class="resources">
                     <dt> KNOWN ANCHOR LIST</dt>
@@ -15,14 +17,20 @@ export class HomeViewElement extends LitElement {
                     <dt> LOCATION INFO</dt>
                     <dd><a href="/location"> Locations</a></dd>
                 </dl>
+                </div>
+
+                <div></div>
+                
+                <div>
+                </div>
+                
             </section>
-            <img src="/assets/highline_main.JPG" alt="highline front"
-                 style="width:60%; justify-self: end; align-self: start;">
     `;
     }
 
     css() {
-        return css``;
+        return css`
+            padding: var(--text-padding);
+        `;
     }
-    // more to come
 }

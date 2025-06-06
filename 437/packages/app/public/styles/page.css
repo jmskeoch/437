@@ -67,7 +67,7 @@ svg.icon {
     color: var(--color-background-page);
 
 
-    font-size: var(--text-size-body);  /* keep it the same as p */
+    font-size: var(--text-size-subtext);
     font-weight: 400;
 }
 
@@ -78,13 +78,13 @@ svg.icon {
     color: var(--color-background-page);
 
 
-    font-size: var(--text-size-body);  /* keep it the same as p */
+    font-size: var(--text-size-subtext);  /* keep it the same as p */
     font-weight: 400;
 }
 
 .header-subtext { /* for keeping it small under 'RIG LOG' */
     margin-top: 8px;
-    font-size: var(--text-size-body);
+    font-size: var(--text-size-subtext);
 }
 
 .page {
@@ -131,7 +131,7 @@ svg.icon {
     grid-template-columns:
     [start] 1fr 1fr 1fr
             1fr [end];
-    gap: var(--text-size-body);
+    gap: 16px;
 }
 
 .resources > dt {
@@ -141,3 +141,24 @@ svg.icon {
 .resources > dd {
     grid-column: 2 / end;
 }
+
+.left-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    height: 100%;
+
+    font-size: var(--text-size-body)
+}
+
+.rendered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+

@@ -21,7 +21,7 @@ export class LocationViewElement extends LitElement {
                 <dd> Ballstrocity @ Pirate's Cove</dd>
 
                 <dt> Coordinates</dt>
-                <dd> ------</dd>
+                <dd> N 35° 10.537′, W 120° 42.725′</dd>
             </dl>
             <script src="/main.js"></script>
             </body>

@@ -8,7 +8,7 @@ interface Session {
     link: string;
 }
 
-export class SessionsElement extends LitElement {
+export class SessionsWrapper extends LitElement {
     constructor() {
         super();
     }
@@ -19,33 +19,42 @@ export class SessionsElement extends LitElement {
     @state()
     sessions: Array<Session> = [];
 
+
+
     renderSessions(sessions: Session) {
         return html`
-            <rig-sessions>
-                ${sessions.date}
-                ${sessions.weather}
-                ${sessions.damage}
-            </rig-sessions>
-        `
+            <div>
+                Date: ${sessions.date} ><br />
+                Weather: ${sessions.weather}<br />
+                Damage: ${sessions.damage}<br />
+                <hr />
+            </div>
+        `;
+    }
+
+    willUpdate(changedProps: Map<string, any>) {
+        if (changedProps.has('src') && this.src) {
+            this.hydrate(this.src);
+        }
     }
 
     hydrate(src: string) {
         fetch(src)
             .then(res => res.json())
-            .then((json: object) => {
-                if(json) {
-                    // store the data as @state
-                    const rigSessions = json as {
-                        sessions: Array<Object>
-                    };
-                    this.sessions =
-                        rigSessions.sessions.map(Object);
-                }
+            .then((json: Record<string, Session>) => {
+                this.sessions = Object.values(json);
             })
+            .catch(err => console.error('Failed to load sessions:', err));
     }
 
     connectedCallback() {
         super.connectedCallback();
         if (this.src) this.hydrate(this.src);
+    }
+
+    render() {
+        return html`
+            ${this.sessions.map(session => this.renderSessions(session))}
+        `;
     }
 }

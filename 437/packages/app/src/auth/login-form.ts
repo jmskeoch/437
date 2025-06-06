@@ -113,5 +113,4 @@ export class LoginFormElement extends LitElement {
       }
   `];
 
-    // more to come...
 }

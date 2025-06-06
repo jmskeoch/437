@@ -4,17 +4,22 @@ export class AnchorsViewElement extends LitElement {
     render() {
         return html`
             <body>
-            <img/>
-            <p> Static Side: </p>
+            <p> STATIC </p>
             <dl>
                 <dt> Type</dt>
                 <dd> Bolts</dd>
 
-                <dt> Quantity</dt>
-                <dd> 3</dd>
-
                 <dt> Rope Access Needs</dt>
                 <dd> Bunny Figure-8</dd>
+            </dl>
+
+            <p> TENSION </p>
+            <dl>
+                <dt> Type</dt>
+                <dd> Bolts</dd>
+
+                <dt> Rope Access Needs</dt>
+                <dd> Single Strand Abseil </dd>
             </dl>
             <script src="/main.js"></script>
             </body>
@@ -22,7 +27,7 @@ export class AnchorsViewElement extends LitElement {
     }
 
     css() {
-        return css``;
+        return css`
+        `;
     }
-    // more to come
 }

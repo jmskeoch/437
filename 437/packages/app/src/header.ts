@@ -21,8 +21,8 @@ export class HeaderElement extends LitElement {
 
     renderSignInButton() {
         return html`
-            <a href="../login.html">
-                Sign In…
+            <a href="../login.html" style="display: block; text-align: center;">
+                Sign In    
             </a>
         `;
     }
@@ -30,11 +30,11 @@ export class HeaderElement extends LitElement {
     override render() {
         return html`
                 <div>
+                    Hello, ${this.userid || "slacker"} <br>
                     ${this.loggedIn ?
-            this.renderSignOutButton() :
-            this.renderSignInButton()
-        }
-                    Hello, ${this.userid || "slacker"}
+                            this.renderSignOutButton() :
+                            this.renderSignInButton()
+                    }
                 </div>
             `;
     }
