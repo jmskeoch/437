@@ -106,11 +106,6 @@ export class LoginFormElement extends LitElement {
     static styles = [
         reset.styles,
         css`
-      .error:not(:empty) {
-        color: var(--color-background-page);
-        border: 1px solid var(--color-accent);
-        padding: var(--size-spacing-large);
-      }
   `];
 
 }
